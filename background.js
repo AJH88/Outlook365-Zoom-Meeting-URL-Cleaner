@@ -1,6 +1,6 @@
 chrome.webRequest.onBeforeRequest.addListener(
     function(details) {
-    	if (details.url.slice(-1) == ';'){
+    	if (details.url.includes('zoom.us/') && details.url.slice(-1) == ';'){
     		let new_url = details.url.slice(0, -1);
         	return {
             	redirectUrl: new_url
